@@ -224,8 +224,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  bullet: {fileID: 0}
+  bullet: {fileID: 2000282133881537629, guid: c48586f77efc6944692c874fb9071d7d, type: 3}
   tTL: 5
+  shotRange: 6
+  shotInterval: 0.2
+  volleyInterval: 1
   player: {fileID: 0}
 --- !u!1001 &3798943620571070536
 PrefabInstance:
@@ -237,22 +240,30 @@ PrefabInstance:
     - target: {fileID: 3798943618935656289, guid: 55da8393e21f50b43944d74657a9dc3e, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+      objectReference: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
     - target: {fileID: 3798943618935656290, guid: 55da8393e21f50b43944d74657a9dc3e, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3798943618935656290, guid: 55da8393e21f50b43944d74657a9dc3e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798943618935656290, guid: 55da8393e21f50b43944d74657a9dc3e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798943618935656290, guid: 55da8393e21f50b43944d74657a9dc3e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.6510412
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 3798943618935656290, guid: 55da8393e21f50b43944d74657a9dc3e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.0431125
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3798943618935656290, guid: 55da8393e21f50b43944d74657a9dc3e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.13456821
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3798943618935656290, guid: 55da8393e21f50b43944d74657a9dc3e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -290,6 +301,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3798943618935656302, guid: 55da8393e21f50b43944d74657a9dc3e, type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798943618935656302, guid: 55da8393e21f50b43944d74657a9dc3e, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 2000282133881537629, guid: c48586f77efc6944692c874fb9071d7d, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55da8393e21f50b43944d74657a9dc3e, type: 3}
 --- !u!1001 &8461825822016276356
@@ -305,11 +324,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3771280964358801638, guid: f94ef0fa122c2b14982c350d7f053ad3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.68
+      value: 9.57
       objectReference: {fileID: 0}
     - target: {fileID: 3771280964358801638, guid: f94ef0fa122c2b14982c350d7f053ad3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.36
+      value: 6.12
       objectReference: {fileID: 0}
     - target: {fileID: 3771280964358801638, guid: f94ef0fa122c2b14982c350d7f053ad3, type: 3}
       propertyPath: m_LocalPosition.z

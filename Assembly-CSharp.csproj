@@ -56,6 +56,7 @@
     <Compile Include="Assets\Scripts\PlayerScript.cs" />
     <Compile Include="Assets\Scripts\SpaceShipScript1.cs" />
     <Compile Include="Assets\Scripts\Enemy1.cs" />
+    <Compile Include="Assets\Scripts\BulletScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
