@@ -123,6 +123,52 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &236935196
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 236935198}
+  - component: {fileID: 236935197}
+  m_Layer: 0
+  m_Name: Game Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &236935197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 236935196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2b3e22707a8a9b43af820a3bb4d9947, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  enemy: {fileID: 5337900900200127193, guid: f94ef0fa122c2b14982c350d7f053ad3, type: 3}
+  intervalOfDude: 1
+--- !u!4 &236935198
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 236935196}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 5.1240263, z: -2.4241586}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,6 +276,7 @@ MonoBehaviour:
   shotInterval: 0.2
   volleyInterval: 1
   player: {fileID: 0}
+  newStartPos: {x: 0, y: 0, z: 0}
 --- !u!1001 &3798943620571070536
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -309,6 +356,10 @@ PrefabInstance:
       propertyPath: bullet
       value: 
       objectReference: {fileID: 2000282133881537629, guid: c48586f77efc6944692c874fb9071d7d, type: 3}
+    - target: {fileID: 3798943618935656302, guid: 55da8393e21f50b43944d74657a9dc3e, type: 3}
+      propertyPath: shotInterval
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55da8393e21f50b43944d74657a9dc3e, type: 3}
 --- !u!1001 &8461825822016276356
@@ -369,6 +420,10 @@ PrefabInstance:
     - target: {fileID: 5337900900200127193, guid: f94ef0fa122c2b14982c350d7f053ad3, type: 3}
       propertyPath: m_Name
       value: Enemy1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5337900900200127193, guid: f94ef0fa122c2b14982c350d7f053ad3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5337900900200127193, guid: f94ef0fa122c2b14982c350d7f053ad3, type: 3}
       propertyPath: m_TagString

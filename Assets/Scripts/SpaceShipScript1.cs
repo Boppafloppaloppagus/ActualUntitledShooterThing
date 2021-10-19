@@ -7,13 +7,14 @@ public class SpaceShipScript1 : MonoBehaviour
 {
     public int speed;
 
+    public static bool enemyDisabled;
+    public static bool playerDisabled;
+
     public GameObject bullet;
 
     GameObject lastBulletFired;
 
     BulletScript lastFiredScript;
-
-    Vector3 rotation;
 
     //Some pretty greedy bullets.
     public void shootBOOLLET()
@@ -32,6 +33,10 @@ public class SpaceShipScript1 : MonoBehaviour
     //Boom.
     public void deactivateShip()
     {
+        if (this.gameObject.tag != "Player")
+            enemyDisabled = true;
+        else if (this.gameObject.tag == "Player")
+            playerDisabled = true;
         this.gameObject.SetActive(false);
     }
     //To convert radians to degrees multiply by pi/180
@@ -44,7 +49,6 @@ public class SpaceShipScript1 : MonoBehaviour
     //This handles the bullet collisions, may add enemy collisions.
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Collision");
         if (other.gameObject.tag == "Lethal")
         {
             BulletScript checkForCreator = other.GetComponent<BulletScript>();

@@ -7,7 +7,10 @@ public class PlayerScript : SpaceShipScript1
     Vector3 sPos;
     Vector3 relativeMousePos;
 
+    public float shotInterval;
+
     float angleFromPlayerOrigin;
+    float shootTimer;
 
     Renderer yourFace;
 
@@ -27,9 +30,14 @@ public class PlayerScript : SpaceShipScript1
 
         MouseInputRotation();
         
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButton("Fire1"))
         {
-            shootBOOLLET();
+            shootTimer += Time.deltaTime;
+            if (shootTimer >= shotInterval)
+            {
+                shootBOOLLET();
+                shootTimer = 0;
+            }
         }
     }
 
