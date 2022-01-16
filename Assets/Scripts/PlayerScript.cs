@@ -16,8 +16,9 @@ public class PlayerScript : SpaceShipScript1
 
     // Start is called before the first frame update
     //I needed some way to differentiate the player and enemy visually.
-    void Start()
+    new void Start()
     {
+        base.Start();
         sPos = this.gameObject.transform.position;
         yourFace = this.gameObject.GetComponent<Renderer>();
         yourFace.material.SetColor("_Color",Color.green);

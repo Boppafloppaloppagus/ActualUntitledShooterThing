@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -604644491953918489}
   - component: {fileID: 5565823667368734642}
   - component: {fileID: -4544771366846548166}
+  - component: {fileID: -3667936910987868833}
   m_Layer: 0
   m_Name: BULLET
   m_TagString: Lethal
@@ -96,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efc60b0b992dc6a4b8078438fd9684e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  THENAMEOFMYGLORIOUSCREATOR: 
   speed: 10
 --- !u!54 &5565823667368734642
 Rigidbody:
@@ -126,3 +128,17 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-3667936910987868833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2000282133881537629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55a9f6f2c9f9a2643b8796ee5cac2718, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeContent: {fileID: 2000282133881537629}
+  nextNode: {fileID: 0}

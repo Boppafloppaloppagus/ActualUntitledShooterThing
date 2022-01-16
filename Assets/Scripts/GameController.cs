@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
     public GameObject player;
     public GameObject enemy;
 
+    GameObject headNode;
+    GameObject checkNode;
+    NodeMachine checkNodeScript;
     GameObject dudeToDispense;
 
     public float intervalOfDude;
@@ -25,20 +29,25 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        dudeRepository = new GameObject[6];
+
+        checkNode = Instantiate(enemy, new Vector3(15, Random.Range(-4, 4), 0), Quaternion.identity);
+        checkNodeScript = checkNode.GetComponent<NodeMachine>();
+        headNode = checkNode;
+
+        /*dudeRepository = new GameObject[6];
         for (int i = 0; i < dudeRepository.Length; i++)
         {
             dudeRepository[i] = dudeRepository[dudeIndex] = Instantiate(enemy, new Vector3(15, Random.Range(-4, 4), 0), Quaternion.identity);
             dudeRepository[i].SetActive(false);
             Debug.Log(dudeRepository[i]);
         }
-        Debug.Log(dudeRepository.Length);
+        Debug.Log(dudeRepository.Length);*/
     }
 
     // Update is called once per frame
     void Update()
     {
-        TheFantasticDudeDispenser();
+        TheFantasticDudeDispenser2();
         if (SpaceShipScript1.enemyDisabled == true)
         {
             points+= 69420;
@@ -59,13 +68,10 @@ public class GameController : MonoBehaviour
         if (dudeTimer >= intervalOfDude)
         {
             notDone = true;
-            Debug.Log("loop actually started");
             while (notDone)
             {
-                Debug.Log("looptime");
                 if (dudeIndex == dudeRepository.Length)
                 {
-                    Debug.Log("This may crash, case not enough units");
                     oldDudeRepository = new GameObject[dudeRepository.Length];
                     for (int i = 0; i < dudeRepository.Length; i++)
                     {
@@ -79,33 +85,66 @@ public class GameController : MonoBehaviour
                 }
                 else if (dudeRepository[dudeIndex] == null)
                 {
-                    Debug.Log("Case, no unit stored");
                     dudeRepository[dudeIndex] = Instantiate(enemy, new Vector3(15, Random.Range(-4, 4), 0), Quaternion.identity);
                     dudeRepository[dudeIndex].SetActive(false);
                 }
                 else if (dudeRepository[dudeIndex].activeInHierarchy)
                 {
-                    Debug.Log("Case, no unused unit at this index." + dudeIndex);
                     dudeIndex++;
-                    Debug.Log(dudeIndex);
                 }
 
                 else if (!dudeRepository[dudeIndex].activeInHierarchy)
                 {
-                    Debug.Log("case, enable dude." + dudeIndex);
                     dudeRepository[dudeIndex].SetActive(true);
-                    Debug.Log("enabled");
                     dudeRepository[dudeIndex].transform.position = new Vector3(15, Random.Range(-4, 4), 0);
-                    Debug.Log("destination set");
                     dudeTimer = 0;
-                    Debug.Log("Timer reset");
                     dudeIndex = 0;
-                    Debug.Log("index reset");
                     notDone = false;
-                    Debug.Log("loop end");
 
                 }
                 
+            }
+        }
+    }
+
+    void TheFantasticDudeDispenser2()
+    {
+
+        dudeTimer += Time.deltaTime;
+
+        if (dudeTimer >= intervalOfDude)
+        {
+            checkNode = headNode;
+            checkNodeScript = headNode.GetComponent<NodeMachine>();
+            notDone = true;
+            while (notDone)
+            {
+                if (checkNode.activeInHierarchy)
+                {
+                    if (checkNodeScript.nextNode != null)
+                    {
+                        checkNode = checkNodeScript.nextNode;
+                        checkNodeScript = checkNode.GetComponent<NodeMachine>();
+                    }
+                    else
+                    {
+                        checkNodeScript.nextNode = Instantiate(enemy, new Vector3(15, Random.Range(-4, 4), 0), Quaternion.identity);
+                        checkNode = checkNodeScript.nextNode;
+                        checkNodeScript = checkNode.GetComponent<NodeMachine>();
+                        checkNode.SetActive(false);
+                    }
+                }
+
+                else
+                {
+                    checkNode.SetActive(true);
+                    checkNode.transform.position = new Vector3(15, Random.Range(-4, 4), 0);
+                    dudeTimer = 0;
+                    dudeIndex = 0;
+                    notDone = false;
+
+                }
+
             }
         }
     }

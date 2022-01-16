@@ -24,13 +24,19 @@ public class Enemy1 : SpaceShipScript1
     Renderer thisGuysFace;
     // Start is called before the first frame update
     //This causes the enemy to blush, because frankly you're kind of embarressing.
-    void Start()
+    new void Start()
     {
+        base.Start();
         player = GameObject.FindGameObjectWithTag("Player");
 
         thisGuysFace = this.gameObject.GetComponent<Renderer>();
         thisGuysFace.material.SetColor("_Color", Color.red);
         timer = 0;
+    }
+    new void Awake()
+    {
+        volleyTimer = 0;
+            
     }
 
     // Update is called once per frame
@@ -41,9 +47,8 @@ public class Enemy1 : SpaceShipScript1
         LookAtPlayer();
 
         timer += Time.deltaTime;
-        if (timer >= tTL)
+        if (this.gameObject.transform.position.x <= -20)
         {
-            timer = 0;
             volleyTimer = 0;
             this.gameObject.SetActive(false);
         }

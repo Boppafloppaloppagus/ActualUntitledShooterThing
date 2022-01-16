@@ -12,7 +12,7 @@ public class BulletScript : MonoBehaviour
     Vector3 forwardVector;
     Vector3 arbitraryPoint;
     float riseOverRun;
-    float tTL;
+    public float tTL;
 
     // Update is called once per frame
     void Update()
@@ -23,7 +23,7 @@ public class BulletScript : MonoBehaviour
         tTL += Time.deltaTime;
         if (tTL >= 3)
         {
-            Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
         }
     }
     //Some trig that determines what 'forward' is relative to the object rotation in the worldspace.
