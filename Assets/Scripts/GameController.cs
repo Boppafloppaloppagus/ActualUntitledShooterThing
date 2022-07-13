@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -12,6 +13,11 @@ public class GameController : MonoBehaviour
     GameObject checkNode;
     NodeMachine checkNodeScript;
     GameObject dudeToDispense;
+
+    public Button restart;
+    public Button stop;
+
+    public Text pointTxt;
 
     public float intervalOfDude;
 
@@ -29,10 +35,16 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        Debug.Log("Start was called");
         checkNode = Instantiate(enemy, new Vector3(15, Random.Range(-4, 4), 0), Quaternion.identity);
         checkNodeScript = checkNode.GetComponent<NodeMachine>();
         headNode = checkNode;
+
+        stop.onClick.AddListener(yeOlGamStopper);
+        restart.onClick.AddListener(theUnFuckyWuckyButton);
+
+        stop.gameObject.SetActive(false);
+        restart.gameObject.SetActive(false);
 
         /*dudeRepository = new GameObject[6];
         for (int i = 0; i < dudeRepository.Length; i++)
@@ -51,13 +63,25 @@ public class GameController : MonoBehaviour
         if (SpaceShipScript1.enemyDisabled == true)
         {
             points+= 69420;
+            pointTxt.text = points.ToString();
             SpaceShipScript1.enemyDisabled = false;
-            Debug.Log(points);
         }
         if (SpaceShipScript1.playerDisabled == true)
         {
-            SpaceShipScript1.enemyDisabled = false;
+            stop.gameObject.SetActive(true);
+            restart.gameObject.SetActive(true);
+            SpaceShipScript1.playerDisabled = false;
         }
+    }
+
+    void yeOlGamStopper()
+    {
+        Application.Quit();
+    }
+
+    void theUnFuckyWuckyButton()
+    {
+        SceneManager.LoadScene("SampleScene",LoadSceneMode.Single);
     }
 
     void TheFantasticDudeDispenser()

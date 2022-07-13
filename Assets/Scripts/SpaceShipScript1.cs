@@ -5,7 +5,7 @@ using UnityEngine;
 //Both player and enemy units inherit Monobehaviour through this script.
 public class SpaceShipScript1 : MonoBehaviour
 {
-    public int speed;
+    public float speed;
 
     public static bool enemyDisabled;
     public static bool playerDisabled;
